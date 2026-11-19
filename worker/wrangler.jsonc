@@ -4,16 +4,18 @@
   "main": "src/index.ts",
   "compatibility_date": "2025-03-10",
   "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
   "vars": {
     // Must equal the connector URL entered in Claude, path included: every token is bound to it.
-    "MCP_RESOURCE": "http://localhost:8788/mcp",
-    "UPSTREAM_MCP_URL": "http://localhost:8080/mcp",
+    "MCP_RESOURCE": "https://awardwallet-mcp-auth.balaji-dutt-homelab.workers.dev/mcp",
+    "UPSTREAM_MCP_URL": "https://awardwallet-mcp.fly.dev/mcp",
     "ALLOWED_GITHUB_LOGIN": "balaji-dutt"
   },
   "kv_namespaces": [
     {
       "binding": "OAUTH_KV",
-      "id": "<Add-KV-ID>"
+      "id": "bb843b5e014b44b5a0a74e182725cebe"
     }
   ],
   "observability": {
