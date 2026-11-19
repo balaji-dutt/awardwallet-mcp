@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "awardwallet-mcp-auth",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-10",
+  "compatibility_flags": ["nodejs_compat"],
+  "vars": {
+    // Must equal the connector URL entered in Claude, path included: every token is bound to it.
+    "MCP_RESOURCE": "http://localhost:8788/mcp",
+    "UPSTREAM_MCP_URL": "http://localhost:8080/mcp",
+    "ALLOWED_GITHUB_LOGIN": "balaji-dutt"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "<Add-KV-ID>"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  },
+  "dev": {
+    "port": 8788
+  },
+  "secrets": {
+    "required": [
+      "GITHUB_CLIENT_ID",
+      "GITHUB_CLIENT_SECRET",
+      "COOKIE_ENCRYPTION_KEY",
+      "PROXY_SHARED_SECRET"
+    ]
+  }
+}

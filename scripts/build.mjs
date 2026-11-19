@@ -5,10 +5,15 @@ import { chmodSync, readFileSync } from "node:fs";
 
 const pkg = JSON.parse(readFileSync(new URL("../package.json", import.meta.url), "utf8"));
 const outfile = "dist/awardwallet-mcp.mjs";
+const remoteOutfile = "dist/awardwallet-mcp-remote.mjs";
 
-await build({
-  entryPoints: ["src/index.ts"],
-  outfile,
+for (const [entry, out] of [
+  ["src/index.ts", outfile],
+  ["src/remote/node.ts", remoteOutfile],
+]) {
+  await build({
+  entryPoints: [entry],
+  outfile: out,
   bundle: true,
   platform: "node",
   format: "esm",
@@ -24,6 +29,7 @@ await build({
     ].join("\n"),
   },
   logLevel: "info",
-});
+  });
+}
 chmodSync(outfile, 0o755);
-console.log(`Built ${outfile} (v${pkg.version})`);
+console.log(`Built ${outfile} and ${remoteOutfile} (v${pkg.version})`);

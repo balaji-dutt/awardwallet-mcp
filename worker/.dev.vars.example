@@ -1,0 +1,4 @@
+GITHUB_CLIENT_ID=<your github client id>
+GITHUB_CLIENT_SECRET=<your github client secret>
+COOKIE_ENCRYPTION_KEY=<output of: openssl rand -hex 32>
+PROXY_SHARED_SECRET=<same value as the fly.io app's PROXY_SHARED_SECRET>

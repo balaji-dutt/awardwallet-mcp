@@ -36,6 +36,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "start": "node dist/awardwallet-mcp.mjs",
+    "start:remote": "node dist/awardwallet-mcp-remote.mjs",
     "login": "node dist/awardwallet-mcp.mjs login",
     "status": "node dist/awardwallet-mcp.mjs status",
     "typecheck": "tsc --noEmit",
